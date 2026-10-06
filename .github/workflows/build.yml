@@ -306,6 +306,8 @@ jobs:
           fi
           cp -f "$TARGET_FILE" build.config
           FINAL_CONFIG="build.config"
+          sed -i 's/^CONFIG_FIRMWARE_ENABLE_USB=n/CONFIG_FIRMWARE_ENABLE_USB=y/' "$FINAL_CONFIG"
+sed -i 's/^CONFIG_FIRMWARE_INCLUDE_LPRD=n/CONFIG_FIRMWARE_INCLUDE_LPRD=y/' "$FINAL_CONFIG"
           echo "::endgroup::"
           
           # === 極限瘦身邏輯 (Ultimate Nano - TC/Cake Ready) ===

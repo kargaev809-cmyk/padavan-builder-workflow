@@ -318,7 +318,7 @@ jobs:
             sed -i "s/#CONFIG_CC_OPTIMIZE_FOR_SIZE=y/CONFIG_CC_OPTIMIZE_FOR_SIZE=y/g" "$FINAL_CONFIG"
          
             # 2. [基礎切除] 停用 USB, 檔案系統, Swap, 媒體驅動
-            for feat in USB ANTFS FAT EXFAT EXT2 EXT3 EXT4 XFS HFS FUSE SWAP BACKPORTED; do
+            for feat in ANTFS FAT EXFAT EXT2 EXT3 EXT4 XFS HFS FUSE SWAP BACKPORTED; do
               sed -i "s/CONFIG_FIRMWARE_ENABLE_${feat}=y/CONFIG_FIRMWARE_ENABLE_${feat}=n/gi" "$FINAL_CONFIG"
             done
          
@@ -333,7 +333,7 @@ jobs:
             # 目標：不管該選項原本是 =y, =m, 還是 # is not set，通通強制改為 =n
             echo "::group::Absolute Disable Modules"
             modules=(
-              CIFS NTFS_3G LPRD U2EC USBIP HDPARM PARTED SMBD WINS SMBD_SYSLOG TESTPARM 
+              CIFS NTFS_3G U2EC USBIP HDPARM PARTED SMBD WINS SMBD_SYSLOG TESTPARM 
               FTPD FTPD_SSL NFSD NFSC
               UVC HID SERIAL AUDIO FIREFLY XUPNPD MINIDLNA FFMPEG_NEW 
               RPL2TP EAP_PEAP OPENVPN SSWAN WIREGUARD AMNEZIAWG ZEROTIER EOIP XFRM
